@@ -10,7 +10,6 @@ namespace Projet_DEC_Alpha
     {
         private string Nom;
         private int Power{get;set;}
-
         private int Accuracy { get; set; }
         private TypePokemon Type { get; set; }
         private int PowerPoint { get; set; }

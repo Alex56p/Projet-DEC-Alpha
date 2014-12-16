@@ -9,7 +9,7 @@ namespace Projet_DEC_Alpha
     class Joueur
     {
         private string Nom;
-        Pokemon[] Equipe;
-        Item[] Items;
+        List<Pokemon> Equipe;
+        List<Item> Items;
     }
 }
