@@ -17,7 +17,6 @@ namespace Projet_DEC_Alpha
         private int Level { get; set;}
         private int Exp { get; set; }
         private int HP { get; set; }
-
         private int Attack { get; set; }
         private int Defense { get; set; }
         private int Mana { get; set; }
