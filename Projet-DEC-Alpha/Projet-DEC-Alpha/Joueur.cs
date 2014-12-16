@@ -11,5 +11,10 @@ namespace Projet_DEC_Alpha
         private string Nom;
         List<Pokemon> Equipe;
         List<Item> Items;
+        public Joueur(string nom, List<Pokemon> equipe)
+        {
+            Nom = nom;
+            Equipe = equipe;
+        }
     }
 }
