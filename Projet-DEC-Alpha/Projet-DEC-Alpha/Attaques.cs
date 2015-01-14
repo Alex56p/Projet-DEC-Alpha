@@ -43,5 +43,10 @@ namespace Projet_DEC_Alpha
         {
             return PP;
         }
+
+        public void Use(Pokemon pkmn)
+        {
+            
+        }
     }
 }

@@ -72,6 +72,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.LB_Turn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -96,6 +98,7 @@
             this.BTN_Move1.TabIndex = 1;
             this.BTN_Move1.Text = "Move #1";
             this.BTN_Move1.UseVisualStyleBackColor = true;
+            this.BTN_Move1.Click += new System.EventHandler(this.BTN_Move1_Click);
             // 
             // BTN_Move4
             // 
@@ -106,6 +109,7 @@
             this.BTN_Move4.TabIndex = 2;
             this.BTN_Move4.Text = "Move #4";
             this.BTN_Move4.UseVisualStyleBackColor = true;
+            this.BTN_Move4.Click += new System.EventHandler(this.BTN_Move4_Click);
             // 
             // BTN_Move2
             // 
@@ -116,6 +120,7 @@
             this.BTN_Move2.TabIndex = 3;
             this.BTN_Move2.Text = "Move #2";
             this.BTN_Move2.UseVisualStyleBackColor = true;
+            this.BTN_Move2.Click += new System.EventHandler(this.BTN_Move2_Click);
             // 
             // BTN_Move3
             // 
@@ -126,6 +131,7 @@
             this.BTN_Move3.TabIndex = 4;
             this.BTN_Move3.Text = "Move #3";
             this.BTN_Move3.UseVisualStyleBackColor = true;
+            this.BTN_Move3.Click += new System.EventHandler(this.BTN_Move3_Click);
             // 
             // label1
             // 
@@ -311,7 +317,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(345, 266);
             this.groupBox1.TabIndex = 21;
@@ -342,7 +348,7 @@
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Location = new System.Drawing.Point(372, 12);
+            this.groupBox2.Location = new System.Drawing.Point(372, 42);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(345, 266);
             this.groupBox2.TabIndex = 22;
@@ -377,6 +383,7 @@
             this.BTN_Move1_2.TabIndex = 1;
             this.BTN_Move1_2.Text = "Move #1";
             this.BTN_Move1_2.UseVisualStyleBackColor = true;
+            this.BTN_Move1_2.Click += new System.EventHandler(this.BTN_Move1_2_Click);
             // 
             // label9
             // 
@@ -397,6 +404,7 @@
             this.BTN_Move4_2.TabIndex = 2;
             this.BTN_Move4_2.Text = "Move #4";
             this.BTN_Move4_2.UseVisualStyleBackColor = true;
+            this.BTN_Move4_2.Click += new System.EventHandler(this.BTN_Move4_2_Click);
             // 
             // LB_xp2
             // 
@@ -417,6 +425,7 @@
             this.BTN_Move2_2.TabIndex = 3;
             this.BTN_Move2_2.Text = "Move #2";
             this.BTN_Move2_2.UseVisualStyleBackColor = true;
+            this.BTN_Move2_2.Click += new System.EventHandler(this.BTN_Move2_2_Click);
             // 
             // LB_lvl2
             // 
@@ -437,6 +446,7 @@
             this.BTN_Move3_2.TabIndex = 4;
             this.BTN_Move3_2.Text = "Move #3";
             this.BTN_Move3_2.UseVisualStyleBackColor = true;
+            this.BTN_Move3_2.Click += new System.EventHandler(this.BTN_Move3_2_Click);
             // 
             // LB_Speed2
             // 
@@ -558,12 +568,36 @@
             this.label24.TabIndex = 10;
             this.label24.Text = "Level: ";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(309, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 25);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Turn:";
+            // 
+            // LB_Turn
+            // 
+            this.LB_Turn.AutoSize = true;
+            this.LB_Turn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_Turn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LB_Turn.Location = new System.Drawing.Point(374, 9);
+            this.LB_Turn.Name = "LB_Turn";
+            this.LB_Turn.Size = new System.Drawing.Size(23, 25);
+            this.LB_Turn.TabIndex = 24;
+            this.LB_Turn.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(729, 290);
+            this.ClientSize = new System.Drawing.Size(729, 322);
+            this.Controls.Add(this.LB_Turn);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -576,6 +610,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -625,6 +660,8 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label LB_Turn;
     }
 }
 
