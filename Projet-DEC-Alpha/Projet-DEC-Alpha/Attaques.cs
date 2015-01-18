@@ -44,9 +44,96 @@ namespace Projet_DEC_Alpha
             return PP;
         }
 
-        public void Use(Pokemon pkmn)
+        public void Use(Pokemon user, Pokemon receiver)
         {
-            
+            receiver.SetHP(receiver.GetHP() - Convert.ToInt32(Damage(user, receiver)));
+        }
+
+        private float Damage(Pokemon user, Pokemon receiver)
+        {
+            float ye = (2.0f * user.GetLevel() + 10.0f) / 250.0f;
+            float wahoo = (user.GetAtt() / receiver.GetDef());
+            float damn = this.GetPower() * IsStab(user) * IsEffective(receiver);
+            return ye * wahoo * damn;
+            //return ((2 * user.GetLevel() + 10) / 250) * (user.GetAtt() / receiver.GetDef()) * this.GetPower() * IsStab(user) * IsEffective(receiver);
+        }
+
+        private float IsStab(Pokemon pkmn)
+        {
+            if (pkmn.GetTypePkmn() == this.GetTypePkmn())
+            {
+                return 1.5f;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        private float IsEffective(Pokemon pkmn)
+        {
+            if (pkmn.GetTypePkmn() == TypePokemon.Normal)
+            {
+                return 1;
+            }
+            else if (pkmn.GetTypePkmn() == TypePokemon.Eau)
+            {
+                if(this.GetTypePkmn() == TypePokemon.Feu)
+                {
+                    return 0.5f;
+                }
+                else if(this.GetTypePkmn() == TypePokemon.Eau)
+                {
+                    return 0.5f;
+                }
+                else if(this.GetTypePkmn() == TypePokemon.Herbe)
+                {
+                    return 2;
+                }
+                else if(this.GetTypePkmn() == TypePokemon.Normal)
+                {
+                    return 1;
+                }
+            }
+            else if (pkmn.GetTypePkmn() == TypePokemon.Feu)
+            {
+                if (this.GetTypePkmn() == TypePokemon.Feu)
+                {
+                    return 0.5f;
+                }
+                else if (this.GetTypePkmn() == TypePokemon.Eau)
+                {
+                    return 2;
+                }
+                else if (this.GetTypePkmn() == TypePokemon.Herbe)
+                {
+                    return 0.5f;
+                }
+                else if (this.GetTypePkmn() == TypePokemon.Normal)
+                {
+                    return 1;
+                }
+            }
+            else if (pkmn.GetTypePkmn() == TypePokemon.Herbe)
+            {
+                if (this.GetTypePkmn() == TypePokemon.Feu)
+                {
+                    return 2;
+                }
+                else if (this.GetTypePkmn() == TypePokemon.Eau)
+                {
+                    return 0.5f;
+                }
+                else if (this.GetTypePkmn() == TypePokemon.Herbe)
+                {
+                    return 0.5f;
+                }
+                else if (this.GetTypePkmn() == TypePokemon.Normal)
+                {
+                    return 1;
+                }
+            }
+            return 1;
         }
     }
 }
