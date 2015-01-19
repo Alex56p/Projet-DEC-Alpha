@@ -74,6 +74,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.LB_Turn = new System.Windows.Forms.Label();
+            this.RTB_Battle = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PB_Player)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -590,12 +591,23 @@
             this.LB_Turn.TabIndex = 24;
             this.LB_Turn.Text = "0";
             // 
+            // RTB_Battle
+            // 
+            this.RTB_Battle.Location = new System.Drawing.Point(13, 315);
+            this.RTB_Battle.Name = "RTB_Battle";
+            this.RTB_Battle.ReadOnly = true;
+            this.RTB_Battle.Size = new System.Drawing.Size(704, 79);
+            this.RTB_Battle.TabIndex = 25;
+            this.RTB_Battle.Text = "";
+            this.RTB_Battle.TextChanged += new System.EventHandler(this.RTB_Battle_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(729, 322);
+            this.ClientSize = new System.Drawing.Size(729, 404);
+            this.Controls.Add(this.RTB_Battle);
             this.Controls.Add(this.LB_Turn);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox2);
@@ -662,6 +674,7 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label LB_Turn;
+        private System.Windows.Forms.RichTextBox RTB_Battle;
     }
 }
 

@@ -59,6 +59,7 @@ namespace Projet_DEC_Alpha
             Pokemon Squirtle = new Pokemon("Squirtle", 10, 25, 15, 20, 18, TypePokemon.Eau, img2, moves);
             P1_pokemon = Charmander;
             P2_pokemon = Squirtle;
+            RTB_Battle.Text += "Game Start!";
             EnterStats();
         }
 
@@ -76,12 +77,23 @@ namespace Projet_DEC_Alpha
                 {
                     WaitEndTurn();
                 }
+                else if (P1_pokemon.GetHP() <= 0 && P2_pokemon.GetHP() <= 0)
+                {
+                    P1_pokemon.SetExp(P1_pokemon.GetExp() + 50);
+                    P2_pokemon.SetExp(P2_pokemon.GetExp() + 50);
+                    RTB_Battle.Text += Environment.NewLine + "It's a tie!";
+                    EnterStats();
+                }
                 else if (P1_pokemon.GetHP() <= 0)
                 {
+                    P2_pokemon.SetExp(P2_pokemon.GetExp() + 50);
+                    RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " won!";
                     EnterStats();
                 }
                 else if (P2_pokemon.GetHP() <= 0)
                 {
+                    P1_pokemon.SetExp(P1_pokemon.GetExp() + 50);
+                    RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " won!";
                     EnterStats();
                 }
             }
@@ -92,20 +104,20 @@ namespace Projet_DEC_Alpha
         {
             if (P1_pokemon.GetSpeed() > P2_pokemon.GetSpeed())
             {
-                P1_move.Use(P1_pokemon, P2_pokemon);
-                P2_move.Use(P2_pokemon, P1_pokemon);
+                RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
+                RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
                 UpdateStats();
             }
             else if (P1_pokemon.GetSpeed() > P2_pokemon.GetSpeed())
             {
-                P2_move.Use(P2_pokemon, P1_pokemon);
-                P1_move.Use(P1_pokemon, P2_pokemon);
+                RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
+                RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
                 UpdateStats();
             }
             else
             {
-                P1_move.Use(P1_pokemon, P2_pokemon);
-                P2_move.Use(P2_pokemon, P1_pokemon);
+                RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
+                RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
                 UpdateStats();
             }
         }
@@ -267,5 +279,12 @@ namespace Projet_DEC_Alpha
             BTN_Move3_2.Enabled = true;
             BTN_Move4_2.Enabled = true;
         }
+
+        private void RTB_Battle_TextChanged(object sender, EventArgs e)
+        {
+            RTB_Battle.SelectionStart = RTB_Battle.Text.Length; //Set the current caret position at the end
+            RTB_Battle.ScrollToCaret(); //Now scroll it automatically
+        }
+
     }
 }

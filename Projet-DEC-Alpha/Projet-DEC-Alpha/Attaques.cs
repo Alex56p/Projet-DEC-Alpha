@@ -13,40 +13,71 @@ namespace Projet_DEC_Alpha
         private int Accuracy { get; set; }
         private TypePokemon Type { get; set; }
         private int PP { get; set; }
+        public float Effectiveness { get; set; }
 
         public Attaque(string nom, int power, int accuracy, TypePokemon type, int pp)
         {
-            Nom = nom;
-            Power = power;
-            Accuracy = accuracy;
-            Type = type;
-            PP = pp;
+            SetNom(nom);
+            SetPower(power);
+            SetAccuracy(accuracy);
+            SetTypePkmn(type);
+            SetPP(pp);
         }
 
         public string GetNom()
         {
             return Nom;
         }
+
+        public void SetNom(string nom)
+        {
+            Nom = nom;
+        }
+
         public int GetPower()
         {
             return Power;
         }
+
+        public void SetPower( int power)
+        {
+            Power = power;
+        }
+
         public int GetAccuracy()
         {
             return Accuracy;
+        }
+
+        public void SetAccuracy(int accuracy)
+        {
+            Accuracy = accuracy;
         }
         public TypePokemon GetTypePkmn()
         {
             return Type;
         }
+
+        public void SetTypePkmn(TypePokemon typepkmn)
+        {
+            Type = typepkmn;
+        }
+
         public int GetPP()
         {
             return PP;
         }
 
-        public void Use(Pokemon user, Pokemon receiver)
+        public void SetPP(int pp)
         {
-            receiver.SetHP(receiver.GetHP() - Convert.ToInt32(Damage(user, receiver)));
+            PP = pp;
+        }
+
+        public int Use(Pokemon user, Pokemon receiver)
+        {
+            int dmg = Convert.ToInt32(Damage(user, receiver));
+            receiver.SetHP(receiver.GetHP() - dmg);
+            return dmg;
         }
 
         private float Damage(Pokemon user, Pokemon receiver)
@@ -55,7 +86,6 @@ namespace Projet_DEC_Alpha
             float wahoo = (user.GetAtt() / receiver.GetDef());
             float damn = this.GetPower() * IsStab(user) * IsEffective(receiver);
             return ye * wahoo * damn;
-            //return ((2 * user.GetLevel() + 10) / 250) * (user.GetAtt() / receiver.GetDef()) * this.GetPower() * IsStab(user) * IsEffective(receiver);
         }
 
         private float IsStab(Pokemon pkmn)
@@ -74,66 +104,80 @@ namespace Projet_DEC_Alpha
         {
             if (pkmn.GetTypePkmn() == TypePokemon.Normal)
             {
-                return 1;
+                Effectiveness = 1;
+                return Effectiveness;
             }
             else if (pkmn.GetTypePkmn() == TypePokemon.Eau)
             {
-                if(this.GetTypePkmn() == TypePokemon.Feu)
+                if (this.GetTypePkmn() == TypePokemon.Feu)
                 {
-                    return 0.5f;
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
                 }
-                else if(this.GetTypePkmn() == TypePokemon.Eau)
+                else if (this.GetTypePkmn() == TypePokemon.Eau)
                 {
-                    return 0.5f;
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
                 }
-                else if(this.GetTypePkmn() == TypePokemon.Herbe)
+                else if (this.GetTypePkmn() == TypePokemon.Herbe)
                 {
-                    return 2;
+                    Effectiveness = 2;
+                    return Effectiveness;
                 }
-                else if(this.GetTypePkmn() == TypePokemon.Normal)
+                else if (this.GetTypePkmn() == TypePokemon.Normal)
                 {
-                    return 1;
+                    Effectiveness = 1;
+                    return Effectiveness;
                 }
             }
             else if (pkmn.GetTypePkmn() == TypePokemon.Feu)
             {
                 if (this.GetTypePkmn() == TypePokemon.Feu)
                 {
-                    return 0.5f;
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
                 }
                 else if (this.GetTypePkmn() == TypePokemon.Eau)
                 {
-                    return 2;
+                    Effectiveness = 2;
+                    return Effectiveness;
                 }
                 else if (this.GetTypePkmn() == TypePokemon.Herbe)
                 {
-                    return 0.5f;
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
                 }
                 else if (this.GetTypePkmn() == TypePokemon.Normal)
                 {
-                    return 1;
+                    Effectiveness = 1;
+                    return Effectiveness;
                 }
             }
             else if (pkmn.GetTypePkmn() == TypePokemon.Herbe)
             {
                 if (this.GetTypePkmn() == TypePokemon.Feu)
                 {
-                    return 2;
+                    Effectiveness = 2;
+                    return Effectiveness;
                 }
                 else if (this.GetTypePkmn() == TypePokemon.Eau)
                 {
-                    return 0.5f;
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
                 }
                 else if (this.GetTypePkmn() == TypePokemon.Herbe)
                 {
-                    return 0.5f;
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
                 }
                 else if (this.GetTypePkmn() == TypePokemon.Normal)
                 {
-                    return 1;
+                    Effectiveness = 1;
+                    return Effectiveness;
                 }
             }
-            return 1;
+            Effectiveness = 1;
+            return Effectiveness;
         }
     }
 }
