@@ -75,6 +75,10 @@ namespace Projet_DEC_Alpha
 
         public int Use(Pokemon user, Pokemon receiver)
         {
+            if(receiver.GetLevel() == 11)
+            {
+                int dmg2 = 1;
+            }
             int dmg = Convert.ToInt32(Damage(user, receiver));
             receiver.SetHP(receiver.GetHP() - dmg);
             return dmg;
@@ -83,7 +87,9 @@ namespace Projet_DEC_Alpha
         private float Damage(Pokemon user, Pokemon receiver)
         {
             float ye = (2.0f * user.GetLevel() + 10.0f) / 250.0f;
-            float wahoo = (user.GetAtt() / receiver.GetDef());
+            float a = user.GetAtt();
+            float d = receiver.GetDef();
+            float wahoo = a / d;
             float damn = this.GetPower() * IsStab(user) * IsEffective(receiver);
             return ye * wahoo * damn;
         }

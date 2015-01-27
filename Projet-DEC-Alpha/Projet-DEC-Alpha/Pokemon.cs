@@ -18,6 +18,8 @@ namespace Projet_DEC_Alpha
         private string Nom;
         private int Level { get; set;}
         private int Exp { get; set; }
+        private int ExpNeeded { get; set; }
+        private float ExpRatio { get; set; }
 
         private int BaseHP { get; set; }
         private int BaseAttack { get; set; }
@@ -29,12 +31,18 @@ namespace Projet_DEC_Alpha
         private int Attack { get; set; }
         private int Defense { get; set; }
         private int Speed { get; set; }
+
+        private float HPRatio { get; set; }
+        private float AttackRatio { get; set; }
+        private float DefenseRatio { get; set; }
+        private float SpeedRatio { get; set; }
+
         private int Mana { get; set; }
         private TypePokemon Type { get; set; }
         private Image Sprite;
         private List<Attaque> Moves { get; set; }
 
-        public Pokemon(string nom, int level, int hp, int att, int def, int speed, TypePokemon type, Image img, List<Attaque> moves)
+        public Pokemon(string nom, int level, int hp, float hpratio, int att, float attratio, int def, float defratio, int speed, float speedratio, TypePokemon type, Image img, List<Attaque> moves)
         {
             SetNom(nom);
             SetBaseMana(10);
@@ -43,6 +51,11 @@ namespace Projet_DEC_Alpha
             SetBaseDef(def);
             SetBaseSpeed(speed);
 
+            SetHPRatio(hpratio);
+            SetAttRatio(attratio);
+            SetDefRatio(defratio);
+            SetSpeedRatio(speedratio);
+
             SetLevel(level);
             SetExp(0);
             SetMana(10);
@@ -50,6 +63,11 @@ namespace Projet_DEC_Alpha
             SetAtt(att);
             SetDef(def);
             SetSpeed(speed);
+
+            SetExp(0);
+            SetExpNeeded(100);
+            SetExpRatio(1.5f);
+
             SetTypePkmn(type);
             SetImage(img);
             SetMoves(moves);
@@ -83,6 +101,24 @@ namespace Projet_DEC_Alpha
         public void SetExp(int exp)
         {
             Exp = exp;
+        }
+        public int GetExpNeeded()
+        {
+            return ExpNeeded;
+        }
+
+        public void SetExpNeeded(int exp)
+        {
+            ExpNeeded = exp;
+        }
+        public float GetExpRatio()
+        {
+            return ExpRatio;
+        }
+
+        public void SetExpRatio(float exp)
+        {
+            ExpRatio = exp;
         }
 
         public int GetBaseHP()
@@ -183,6 +219,46 @@ namespace Projet_DEC_Alpha
             Mana = mana;
         }
 
+        public float GetHPRatio()
+        {
+            return HPRatio;
+        }
+
+        public void SetHPRatio(float hp)
+        {
+            HPRatio = hp;
+        }
+
+        public float GetAttRatio()
+        {
+            return AttackRatio;
+        }
+
+        public void SetAttRatio(float att)
+        {
+            AttackRatio = att;
+        }
+
+        public float GetDefRatio()
+        {
+            return DefenseRatio;
+        }
+
+        public void SetDefRatio(float def)
+        {
+            DefenseRatio = def;
+        }
+
+        public float GetSpeedRatio()
+        {
+            return SpeedRatio;
+        }
+
+        public void SetSpeedRatio(float spd)
+        {
+            SpeedRatio = spd;
+        }
+
         public Image GetImage()
         {
             return Sprite;
@@ -211,6 +287,29 @@ namespace Projet_DEC_Alpha
         public void SetMoves( List<Attaque> moves)
         {
             Moves = moves;
+        }
+
+        public bool LevelUp()
+        {
+            if(Exp >= ExpNeeded)
+            { 
+                SetLevel(GetLevel() + 1);
+                StatsUpgrade();
+                SetExp(0);
+                SetExpNeeded(Convert.ToInt32(GetExpNeeded() * GetExpRatio()));
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private void StatsUpgrade()
+        {
+            float lvl = Level;
+            BaseHP = Convert.ToInt32(Math.Ceiling(2 * GetHPRatio() + 31) * lvl / 100 + lvl + 10);
+            BaseAttack = Convert.ToInt32((Math.Ceiling(2 * GetAttRatio() + 31) * lvl / 100 + 5));
+            BaseDefense = Convert.ToInt32((Math.Ceiling(2 * GetDefRatio() + 31) * lvl / 100 + 5));
+            BaseSpeed = Convert.ToInt32((Math.Ceiling(2 * GetSpeedRatio() + 31) * lvl / 100 + 5));
         }
     }
 }

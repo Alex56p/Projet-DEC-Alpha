@@ -55,8 +55,8 @@ namespace Projet_DEC_Alpha
             moves.Add(Ember);
             moves.Add(WaterGun);
             moves.Add(VineWhip);
-            Pokemon Charmander = new Pokemon("Charmander", 10, 25, 20, 15, 20, TypePokemon.Feu, img, moves);
-            Pokemon Squirtle = new Pokemon("Squirtle", 10, 25, 15, 20, 18, TypePokemon.Eau, img2, moves);
+            Pokemon Charmander = new Pokemon("Charmander", 5, 20, 39, 12, 60, 12, 45, 13, 65,TypePokemon.Feu, img, moves);
+            Pokemon Squirtle = new Pokemon("Squirtle",5, 21, 44, 12, 50, 13, 65, 11, 43, TypePokemon.Eau, img2, moves);
             P1_pokemon = Charmander;
             P2_pokemon = Squirtle;
             RTB_Battle.Text += "Game Start!";
@@ -70,61 +70,217 @@ namespace Projet_DEC_Alpha
                 UseAttacks();
                 AbleMovesP1();
                 AbleMovesP2();
-                LB_Turn.Text = (int.Parse(LB_Turn.Text) + 1).ToString();
                 P1_played = false;
                 P2_played = false;
-                if (P1_pokemon.GetHP() > 0 && P2_pokemon.GetHP() > 0)
-                {
-                    WaitEndTurn();
-                }
-                else if (P1_pokemon.GetHP() <= 0 && P2_pokemon.GetHP() <= 0)
-                {
-                    P1_pokemon.SetExp(P1_pokemon.GetExp() + 50);
-                    P2_pokemon.SetExp(P2_pokemon.GetExp() + 50);
-                    RTB_Battle.Text += Environment.NewLine + "It's a tie!";
-                    EnterStats();
-                }
-                else if (P1_pokemon.GetHP() <= 0)
-                {
-                    P2_pokemon.SetExp(P2_pokemon.GetExp() + 50);
-                    RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " won!";
-                    EnterStats();
-                }
-                else if (P2_pokemon.GetHP() <= 0)
-                {
-                    P1_pokemon.SetExp(P1_pokemon.GetExp() + 50);
-                    RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " won!";
-                    EnterStats();
-                }
+                
             }
+        }
 
+        private void ShowStatsUpgrade(Pokemon pkmn)
+        {
+            float lvl = pkmn.GetLevel() + 1;
+            RTB_Battle.Text += Environment.NewLine + "HP +" + (Convert.ToInt32(Math.Floor(2 * pkmn.GetHPRatio() + 31 )* lvl / 100 + lvl + 10) - pkmn.GetBaseHP());
+            RTB_Battle.Text += Environment.NewLine + "Attack +" + (Convert.ToInt32((Math.Floor(2 * pkmn.GetAttRatio() + 31) * lvl / 100 + 5)) - pkmn.GetBaseAtt());
+            RTB_Battle.Text += Environment.NewLine + "Defense +" + (Convert.ToInt32((Math.Floor(2 * pkmn.GetDefRatio() + 31) * lvl / 100 + 5)) - pkmn.GetBaseDef());
+            RTB_Battle.Text += Environment.NewLine + "Speed +" + (Convert.ToInt32((Math.Floor(2 * pkmn.GetSpeedRatio() + 31) * lvl / 100 + 5)) - pkmn.GetBaseSpeed());
         }
 
         private void UseAttacks()
         {
-            if (P1_pokemon.GetSpeed() > P2_pokemon.GetSpeed())
+            bool dead = false;
+            if (!dead && P1_pokemon.GetSpeed() > P2_pokemon.GetSpeed())
             {
                 RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
+                WriteEffectiveness(P1_move, P2_pokemon);
+                dead = IsSomeoneDead();
+
+                if(!dead)
+                    RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
+                WriteEffectiveness(P2_move, P1_pokemon);
+                dead = IsSomeoneDead();
+                UpdateStats();
+                
+            }
+            else if (!dead && P1_pokemon.GetSpeed() > P2_pokemon.GetSpeed())
+            {
                 RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
+                WriteEffectiveness(P2_move, P1_pokemon);
+                dead = IsSomeoneDead();
+                if(!dead)
+                    RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
+                WriteEffectiveness(P1_move, P2_pokemon);
+                dead = IsSomeoneDead();
                 UpdateStats();
             }
-            else if (P1_pokemon.GetSpeed() > P2_pokemon.GetSpeed())
+            else if(!dead)
             {
-                RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
-                RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
+                Random rnd = new Random();
+                if(rnd.Next(0,2) == 1)
+                { 
+                    RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
+                    WriteEffectiveness(P1_move,P2_pokemon);
+                    dead = IsSomeoneDead();
+                    if(!dead)
+                        RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
+                    WriteEffectiveness(P2_move, P1_pokemon);
+                    dead = IsSomeoneDead();
+                }
+                else
+                {
+                    RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
+                    WriteEffectiveness(P2_move, P1_pokemon);
+                    dead = IsSomeoneDead();
+                    if (!dead)
+                        RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
+                    WriteEffectiveness(P1_move, P2_pokemon);
+                    dead = IsSomeoneDead();
+                }
                 UpdateStats();
+            }
+            if(!dead)
+            { 
+                LB_Turn.Text = (int.Parse(LB_Turn.Text) + 1).ToString(); 
+            }
+        }
+
+        private void WriteEffectiveness(Attaque move, Pokemon receveur)
+        {
+            float Effectiveness = IsEffective(move,receveur);
+            if(Effectiveness == 0.5f)
+            {
+                RTB_Battle.Text += Environment.NewLine + "It's not very effective!";
+            }
+            else if(Effectiveness == 2)
+            {
+                RTB_Battle.Text += Environment.NewLine + "It's super effective!";
+            }
+        }
+
+        private float IsEffective(Attaque move, Pokemon receveur)
+        {
+            float Effectiveness;
+            if (receveur.GetTypePkmn() == TypePokemon.Normal)
+            {
+                Effectiveness = 1;
+                return Effectiveness;
+            }
+            else if (receveur.GetTypePkmn() == TypePokemon.Eau)
+            {
+                if (move.GetTypePkmn() == TypePokemon.Feu)
+                {
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Eau)
+                {
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Herbe)
+                {
+                    Effectiveness = 2;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Normal)
+                {
+                    Effectiveness = 1;
+                    return Effectiveness;
+                }
+            }
+            else if (receveur.GetTypePkmn() == TypePokemon.Feu)
+            {
+                if (move.GetTypePkmn() == TypePokemon.Feu)
+                {
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Eau)
+                {
+                    Effectiveness = 2;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Herbe)
+                {
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Normal)
+                {
+                    Effectiveness = 1;
+                    return Effectiveness;
+                }
+            }
+            else if (receveur.GetTypePkmn() == TypePokemon.Herbe)
+            {
+                if (move.GetTypePkmn() == TypePokemon.Feu)
+                {
+                    Effectiveness = 2;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Eau)
+                {
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Herbe)
+                {
+                    Effectiveness = 0.5f;
+                    return Effectiveness;
+                }
+                else if (move.GetTypePkmn() == TypePokemon.Normal)
+                {
+                    Effectiveness = 1;
+                    return Effectiveness;
+                }
+            }
+            Effectiveness = 1;
+            return Effectiveness;
+        }
+
+        private bool IsSomeoneDead()
+        {
+            if (P1_pokemon.GetHP() > 0 && P2_pokemon.GetHP() > 0)
+            {
+                return false;
+            }
+            else if (P1_pokemon.GetHP() <= 0)
+            {
+                RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " won!" + Environment.NewLine;
+                P2_pokemon.SetExp(P2_pokemon.GetExp() + 50);
+                if (P2_pokemon.GetExp() >= P2_pokemon.GetExpNeeded())
+                {
+                    RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " leveled up!";
+                    ShowStatsUpgrade(P2_pokemon);
+                    P2_pokemon.LevelUp();
+                    RTB_Battle.Text += Environment.NewLine;
+                }
+                EnterStats();
+                return true;
+            }
+            else if (P2_pokemon.GetHP() <= 0)
+            {
+                P1_pokemon.SetExp(P1_pokemon.GetExp() + 50);
+                RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " won!";
+                if (P1_pokemon.GetExp() >= P1_pokemon.GetExpNeeded())
+                {
+                    RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " leveled up!";
+                    ShowStatsUpgrade(P1_pokemon);
+                    P1_pokemon.LevelUp();
+                }
+                EnterStats();
+                return true;
             }
             else
             {
-                RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
-                RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
-                UpdateStats();
+                return false;
             }
         }
 
         private void EnterStats()
         {
             LB_Turn.Text = "1";
+            RTB_Battle.Text += Environment.NewLine + "Battle Start!";
+
 
             //Player1
             P1_pokemon.SetHP(P1_pokemon.GetBaseHP());
@@ -139,6 +295,7 @@ namespace Projet_DEC_Alpha
             BTN_Move4.Text = P1_pokemon.GetMoves()[3].GetNom();
             LB_lvl.Text = P1_pokemon.GetLevel().ToString();
             LB_xp.Text = P1_pokemon.GetExp().ToString();
+            LB_ExpNeeded.Text = P1_pokemon.GetExpNeeded().ToString();
             LB_type.Text = P1_pokemon.GetTypePkmn().ToString();
             LB_hp.Text = P1_pokemon.GetBaseHP().ToString();
             LB_mana.Text = P1_pokemon.GetBaseMana().ToString();
@@ -159,6 +316,7 @@ namespace Projet_DEC_Alpha
             BTN_Move4_2.Text = P2_pokemon.GetMoves()[3].GetNom();
             LB_lvl2.Text = P2_pokemon.GetLevel().ToString();
             LB_xp2.Text = P2_pokemon.GetExp().ToString();
+            LB_ExpNeeded2.Text = P2_pokemon.GetExpNeeded().ToString();
             LB_type2.Text = P2_pokemon.GetTypePkmn().ToString();
             LB_hp2.Text = P2_pokemon.GetBaseHP().ToString();
             LB_mana2.Text = P2_pokemon.GetBaseMana().ToString();
