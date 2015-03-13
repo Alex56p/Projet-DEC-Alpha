@@ -94,9 +94,11 @@ namespace Projet_DEC_Alpha
                 WriteEffectiveness(P1_move, P2_pokemon);
                 dead = IsSomeoneDead();
 
-                if(!dead)
+                if (!dead)
+                {
                     RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
-                WriteEffectiveness(P2_move, P1_pokemon);
+                    WriteEffectiveness(P2_move, P1_pokemon);
+                }
                 dead = IsSomeoneDead();
                 UpdateStats();
                 
@@ -107,8 +109,11 @@ namespace Projet_DEC_Alpha
                 WriteEffectiveness(P2_move, P1_pokemon);
                 dead = IsSomeoneDead();
                 if(!dead)
+                {
                     RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
-                WriteEffectiveness(P1_move, P2_pokemon);
+                    WriteEffectiveness(P1_move, P2_pokemon);
+                }
+                    
                 dead = IsSomeoneDead();
                 UpdateStats();
             }
@@ -121,8 +126,11 @@ namespace Projet_DEC_Alpha
                     WriteEffectiveness(P1_move,P2_pokemon);
                     dead = IsSomeoneDead();
                     if(!dead)
+                    {
                         RTB_Battle.Text += Environment.NewLine + P2_pokemon.GetNom() + " used " + P2_move.GetNom() + " and dealt " + P2_move.Use(P2_pokemon, P1_pokemon) + " to " + P1_pokemon.GetNom();
-                    WriteEffectiveness(P2_move, P1_pokemon);
+                        WriteEffectiveness(P2_move, P1_pokemon);
+                    }
+                        
                     dead = IsSomeoneDead();
                 }
                 else
@@ -131,8 +139,10 @@ namespace Projet_DEC_Alpha
                     WriteEffectiveness(P2_move, P1_pokemon);
                     dead = IsSomeoneDead();
                     if (!dead)
+                    {
                         RTB_Battle.Text += Environment.NewLine + P1_pokemon.GetNom() + " used " + P1_move.GetNom() + " and dealt " + P1_move.Use(P1_pokemon, P2_pokemon) + " to " + P2_pokemon.GetNom();
-                    WriteEffectiveness(P1_move, P2_pokemon);
+                        WriteEffectiveness(P1_move, P2_pokemon);
+                    }
                     dead = IsSomeoneDead();
                 }
                 UpdateStats();
