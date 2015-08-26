@@ -22,13 +22,13 @@ namespace Projet_DEC_Alpha
         Pokemon P2_pokemon;
         Attaque P2_move;
 
-        private Attaque Tackle = new Attaque("Tackle", 40, 100, TypePokemon.Normal, 40);
+        private Attaque Tackle = new Attaque("Charge", 50, 100, TypePokemon.Normal, 40);
         private Attaque Ember = new Attaque("Ember", 40, 100, TypePokemon.Feu, 40);
-        private Attaque WaterGun = new Attaque("Water Gun", 40, 100, TypePokemon.Eau, 40);
-        private Attaque VineWhip = new Attaque("Vine Whip", 40, 100, TypePokemon.Herbe, 40);
+        private Attaque WaterGun = new Attaque("Hydro Pump", 120, 100, TypePokemon.Eau, 40);
+        private Attaque VineWhip = new Attaque("Tempête Verte", 80, 100, TypePokemon.Herbe, 40);
         private List<Attaque> moves = new List<Attaque>();
-        private Image img = GetImageFromUrl("http://cdn.bulbagarden.net/upload/thumb/7/73/004Charmander.png/250px-004Charmander.png");
-        private Image img2 = GetImageFromUrl("http://cdn.bulbagarden.net/upload/thumb/3/39/007Squirtle.png/600px-007Squirtle.png");
+        private Image img = GetImageFromUrl("http://cdn.bulbagarden.net/upload/thumb/9/9a/095Onix.png/250px-095Onix.png");
+        private Image img2 = GetImageFromUrl("http://cdn.bulbagarden.net/upload/thumb/0/0d/025Pikachu.png/250px-025Pikachu.png");
 
 
         public Form1()
@@ -55,8 +55,8 @@ namespace Projet_DEC_Alpha
             moves.Add(Ember);
             moves.Add(WaterGun);
             moves.Add(VineWhip);
-            Pokemon Charmander = new Pokemon("Charmander", 5, 20, 39, 12, 60, 12, 45, 13, 65,TypePokemon.Feu, img, moves);
-            Pokemon Squirtle = new Pokemon("Squirtle",5, 21, 44, 12, 50, 13, 65, 11, 43, TypePokemon.Eau, img2, moves);
+            Pokemon Charmander = new Pokemon("Onix", 5, 20, 35, 12, 45, 12, 160, 13, 70,TypePokemon.Eau, img, moves);
+            Pokemon Squirtle = new Pokemon("Pikachu",5, 21, 35, 12, 55, 13, 40, 11, 90, TypePokemon.Feu, img2, moves);
             P1_pokemon = Charmander;
             P2_pokemon = Squirtle;
             RTB_Battle.Text += "Game Start!";
