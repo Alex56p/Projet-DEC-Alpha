@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="Table" objectID="049843F6-B7D8-85C1-9AE0-5C9F877B7A87" name="Attacks" seqName="seg_0"/>
+   <object objectType="Table" objectID="9D7A1A23-1432-BB60-7D7C-2766977933D8" name="Items" seqName="seg_0"/>
+   <object objectType="Table" objectID="25C8F16E-9FAE-FABB-9140-C7D5F91F3794" name="Monsters" seqName="seg_0"/>
+   <object objectType="Table" objectID="BFE6E626-EB0D-93F7-7CAE-2522C08261B2" name="Monsters_Attacks" seqName="seg_0"/>
+   <object objectType="Table" objectID="9DDF96D4-656A-0589-BF20-D886BA837600" name="Monsters_Learnable" seqName="seg_0"/>
+   <object objectType="Table" objectID="85224193-E43C-11D1-984C-5049F4DD0482" name="Player_Attacks" seqName="seg_0"/>
+   <object objectType="Table" objectID="490F677F-ABA9-C35F-3995-690DD3F4E6B3" name="Player_Items" seqName="seg_0"/>
+   <object objectType="Table" objectID="D564ED98-CA58-30A8-CD0B-6244422002B1" name="Player_Monsters" seqName="seg_0"/>
+   <object objectType="Table" objectID="5463D846-E6F7-E6B5-99CC-616FA7AF3408" name="Players" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="ABE05DAB-24C7-BE99-C427-D8C7773E4F85" name="Monsters_Learnable_Attacks_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="01155968-5AB1-6F04-1CD6-039F0AA610A3" name="Monsters_Learnable_Monsters_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="5922B7C7-8AE1-7CBE-9B51-66EF7210F661" name="Player&amp;apos;s Items_Items_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="189BF760-F761-1146-722A-699D93502855" name="Player&amp;apos;s Items_Players_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="CDB7939A-0A30-905F-0F37-3F25C4530D29" name="Player&amp;apos;s Monsters_Monsters_Attacks_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="F8CB9A38-497C-5F47-087E-3426AAEF1CC7" name="Player&amp;apos;s Monsters_Monsters_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="D8057B22-93BF-C17C-E037-4CB7AB579B77" name="Player&amp;apos;s Monsters_Players_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="1D4A21E9-607A-8FE9-8520-A9F85BDDCEE9" name="PlayerMonsters_Attacks_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="6F8DBE68-0B62-2018-6C33-9F73EF04C214" name="Player_Attacks_FK" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

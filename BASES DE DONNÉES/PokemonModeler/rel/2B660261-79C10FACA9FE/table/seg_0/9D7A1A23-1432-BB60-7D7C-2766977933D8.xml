@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9D7A1A23-1432-BB60-7D7C-2766977933D8" name="Items">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:29:16 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="83B82A48-4B2A-A62F-884B-335CC07E3847">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="ADDE98A3-3A94-895B-F6E3-DED14FDB0517">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Damage" id="3A2945A0-1086-4061-6A71-565C4A1EEF2A">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Healing" id="0D132373-E8F9-79F1-B5A7-9AE32074FA7F">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Attack" id="AC71A5CA-7C91-FD5F-0C80-2CB35DEFD435">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Defense" id="EA99AF0A-55DC-5ED2-804B-B22A3491D711">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Speed" id="49548CCA-CC7D-2C7B-F722-102D41A7C807">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Price" id="A505C58D-A819-38FF-97D6-184A06FF8D52">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 18:51:52 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Description" id="06FCA0D4-AF02-ADB8-1400-D0B3C4A39BF4">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="044211D2-9B75-F59C-E604-DE19A6469B2C" name="Items_PK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:34:59 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="83B82A48-4B2A-A62F-884B-335CC07E3847"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="1D4A21E9-607A-8FE9-8520-A9F85BDDCEE9" name="PlayerMonsters_Attacks_FK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-19 00:05:16 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<containerWithKeyObject>85224193-E43C-11D1-984C-5049F4DD0482</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>8581965B-2E38-39E3-1127-42BDF7E33D49</localFKIndex>
+<keyObject>38AECB58-01C9-A684-8CC5-32C4002576C4</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

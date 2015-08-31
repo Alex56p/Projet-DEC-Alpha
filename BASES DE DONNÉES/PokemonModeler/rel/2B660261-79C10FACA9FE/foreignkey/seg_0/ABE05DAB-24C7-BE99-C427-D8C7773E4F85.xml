@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="ABE05DAB-24C7-BE99-C427-D8C7773E4F85" name="Monsters_Learnable_Attacks_FK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-31 11:36:10 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<containerWithKeyObject>9DDF96D4-656A-0589-BF20-D886BA837600</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>AFAC820A-8994-AD17-CC28-5C01F8D01317</localFKIndex>
+<keyObject>9F9400D3-887F-7D9A-29E6-180612EC99A3</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

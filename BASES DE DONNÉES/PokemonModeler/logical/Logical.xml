@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="FD811726-DD3A-CBED-FE86-CFB58F5D6FA3" mainViewID="DDBF93C9-5808-5F7E-5707-FDF14DCCA6DF">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 14:01:33 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

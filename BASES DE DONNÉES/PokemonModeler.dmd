@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="PokemonModeler" id="34537348-3F1A-0AC6-8858-1AAA92CF6A65" version="3.5">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 14:01:33 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>34537348-3F1A-0AC6-8858-1AAA92CF6A65</designId>
+</OSDM_Design>

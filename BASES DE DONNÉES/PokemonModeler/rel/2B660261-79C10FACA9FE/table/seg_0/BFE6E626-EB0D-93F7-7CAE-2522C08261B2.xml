@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BFE6E626-EB0D-93F7-7CAE-2522C08261B2" name="Monsters_Attacks">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-18 23:53:35 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Player&apos;s_Monster_ID" directorySegmentName="seg_0" id="C63BDD9B-AA70-3925-FD9E-DCB95FA8E9D6">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-31 11:37:13 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Player&apos;s_Attacks_ID" directorySegmentName="seg_0" id="6727FF8B-3427-F46D-F593-44ECFE019D44">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-31 11:37:13 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="38AECB58-01C9-A684-8CC5-32C4002576C4" name=".._PK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-31 11:37:13 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C63BDD9B-AA70-3925-FD9E-DCB95FA8E9D6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

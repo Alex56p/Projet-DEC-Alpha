@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="85224193-E43C-11D1-984C-5049F4DD0482" name="Player_Attacks">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:45:53 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID" id="47C595BC-4FE0-6D4D-7039-B5338EE7F5C0">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:47:16 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_Player&apos;s_Monster" id="343284A1-1D9D-3E5B-CB1C-E462CF3D852E">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:47:16 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>C63BDD9B-AA70-3925-FD9E-DCB95FA8E9D6</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1D4A21E9-607A-8FE9-8520-A9F85BDDCEE9" referredColumn="C63BDD9B-AA70-3925-FD9E-DCB95FA8E9D6"/>
+</associations>
+</Column>
+<Column name="ID_Attack" id="650DCDC4-9A41-E324-1EC6-1ECBCC9D8A31">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:47:16 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>1E3F03D4-596A-EE63-3898-EE8D47523438</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F8DBE68-0B62-2018-6C33-9F73EF04C214" referredColumn="1E3F03D4-596A-EE63-3898-EE8D47523438"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="033B984C-341C-2BD4-4649-3AE335916740" name="Player&apos;s Attacks_PK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-07 17:47:16 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47C595BC-4FE0-6D4D-7039-B5338EE7F5C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="65F04217-2050-30E0-1861-FC6F85653B2E" name="Player_Attacks_FK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-18 23:32:10 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="650DCDC4-9A41-E324-1EC6-1ECBCC9D8A31"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8581965B-2E38-39E3-1127-42BDF7E33D49" name="PlayerMonsters_Attacks_FK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-19 00:05:16 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="343284A1-1D9D-3E5B-CB1C-E462CF3D852E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

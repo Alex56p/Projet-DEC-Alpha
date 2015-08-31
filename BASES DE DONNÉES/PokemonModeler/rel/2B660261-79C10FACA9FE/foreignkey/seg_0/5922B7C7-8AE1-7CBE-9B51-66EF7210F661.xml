@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5922B7C7-8AE1-7CBE-9B51-66EF7210F661" name="Player&apos;s Items_Items_FK">
+<createdBy>Antho</createdBy>
+<createdTime>2015-08-18 23:31:34 UTC</createdTime>
+<generatorID>Généré par l&apos;utilisateur</generatorID>
+<ownerDesignName>PokemonModeler</ownerDesignName>
+<containerWithKeyObject>490F677F-ABA9-C35F-3995-690DD3F4E6B3</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>A80773C4-7E9B-B2A6-1DEB-32121FACD1DB</localFKIndex>
+<keyObject>044211D2-9B75-F59C-E604-DE19A6469B2C</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
